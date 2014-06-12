@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://fake-s3-bucket.s3.amazonaws.com/tls.key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Date:
+      - Thu, 12 Jun 2014 00:48:31 GMT
+      Authorization:
+      - AWS foo:48hwJw1dYmU1Kgg9JN5TtTkYN1E=
+      Accept-Encoding:
+      - identity
+      X-Chef-Version:
+      - 11.12.8
+      Host:
+      - fake-s3-bucket.s3.amazonaws.com:443
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Chef Client/11.12.8 (ruby-2.1.1-p76; ohai-7.0.4; x86_64-darwin13.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - eXVYMJSO/t3r2pLnZKog3mwLfzZsDhniYBQBz9nbAhqmj4/5fC5UaZtDs3vcnEFp
+      X-Amz-Request-Id:
+      - 007C538E22C0F177
+      Date:
+      - Thu, 12 Jun 2014 00:48:32 GMT
+      Last-Modified:
+      - Wed, 11 Jun 2014 11:35:45 GMT
+      Etag:
+      - '"abd0806416ebc253c709ee2839595c24"'
+      X-Amz-Server-Side-Encryption:
+      - AES256
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '1679'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: |
+        -----BEGIN RSA PRIVATE KEY-----
+        test key
+        -----END RSA PRIVATE KEY-----
+    http_version:
+  recorded_at: Thu, 12 Jun 2014 00:48:31 GMT
+- request:
+    method: get
+    uri: https://fake-s3-bucket.s3.amazonaws.com/tls.crt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Date:
+      - Thu, 12 Jun 2014 00:48:31 GMT
+      Authorization:
+      - AWS foo:48hwJw1dYmU1Kgg9JN5TtTkYN1E=
+      Accept-Encoding:
+      - identity
+      X-Chef-Version:
+      - 11.12.8
+      Host:
+      - fake-s3-bucket.s3.amazonaws.com:443
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Chef Client/11.12.8 (ruby-2.1.1-p76; ohai-7.0.4; x86_64-darwin13.0; +http://opscode.com)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - eXVYMJSO/t3r2pLnZKog3mwLfzZsDhniYBQBz9nbAhqmj4/5fC5UaZtDs3vcnEFp
+      X-Amz-Request-Id:
+      - 5B54CB773B49838D
+      Date:
+      - Thu, 12 Jun 2014 00:48:32 GMT
+      Last-Modified:
+      - Wed, 11 Jun 2014 11:35:54 GMT
+      Etag:
+      - '"f8e7a0cfc128331f213e010c4e56e9df"'
+      X-Amz-Server-Side-Encryption:
+      - AES256
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - application/x-x509-ca-cert
+      Content-Length:
+      - '1887'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: |
+        -----BEGIN CERTIFICATE-----
+        test certificate
+        -----END CERTIFICATE-----
+    http_version:
+  recorded_at: Thu, 12 Jun 2014 00:48:31 GMT
+recorded_with: VCR 2.9.2
