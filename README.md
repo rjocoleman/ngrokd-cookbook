@@ -1,6 +1,6 @@
 # ngrokd-cookbook
 
-[![Build Status](https://travis-ci.org/rjocoleman/ngrokd-cookbook.svg)](https://travis-ci.org/rjocoleman/ngrokd-cookbook)
+[![Cookbook Version](http://img.shields.io/cookbook/v/ngrokd.svg)](http://community.opscode.com/cookbooks/ngrokd) [![Build Status](https://travis-ci.org/rjocoleman/ngrokd-cookbook.svg)](https://travis-ci.org/rjocoleman/ngrokd-cookbook)
 
 Chef cookbook to install, configure and run [ngrokd](https://github.com/inconshreveable/ngrok/blob/master/docs/SELFHOSTING.md).
 
