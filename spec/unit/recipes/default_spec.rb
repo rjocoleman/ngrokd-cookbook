@@ -3,10 +3,8 @@ require_relative '../../spec_helper'
 describe 'ngrokd::default' do
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
-      node.set['citadel']['access_key_id'] = 'foo'
-      node.set['citadel']['secret_access_key'] = 'bar'
-      node.set['citadel']['bucket'] = 'fake-s3-bucket'
       node.set['ngrokd']['domain'] = 'example.com'
+      node.set['ngrokd']['source_aws'] = false
     end.converge(described_recipe)
   end
 
@@ -18,12 +16,23 @@ describe 'ngrokd::default' do
     expect(chef_run).to create_directory('/etc/ngrokd')
   end
 
-  it 'creates tls.crt' do
-    expect(chef_run).to render_file('/etc/ngrokd/tls.crt')
-  end
+  context 'tls certs come from AWS-S3' do
+    let(:chef_run) do
+      ChefSpec::Runner.new do |node|
+        node.set['citadel']['access_key_id'] = 'foo'
+        node.set['citadel']['secret_access_key'] = 'bar'
+        node.set['citadel']['bucket'] = 'fake-s3-bucket'
+        node.set['ngrokd']['source_aws'] = true
+      end.converge(described_recipe)
 
-  it 'creates tls.key' do
-    expect(chef_run).to render_file('/etc/ngrokd/tls.key')
+      it 'creates tls.crt' do
+        expect(chef_run).to render_file('/etc/ngrokd/tls.crt')
+      end
+
+      it 'creates tls.key' do
+        expect(chef_run).to render_file('/etc/ngrokd/tls.key')
+      end
+    end
   end
 
   it 'creates ngrokd upstart conf' do
@@ -34,5 +43,4 @@ describe 'ngrokd::default' do
     expect(chef_run).to enable_service('ngrokd')
     expect(chef_run).to start_service('ngrokd')
   end
-
 end
