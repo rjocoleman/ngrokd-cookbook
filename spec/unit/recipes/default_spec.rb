@@ -3,7 +3,7 @@ require_relative '../../spec_helper'
 describe 'ngrokd::default' do
   context 'source tls certificates from AWS' do
     let(:chef_run) do
-      ChefSpec::SoloRunner.new do |node|
+      ChefSpec::Runner.new do |node|
         node.set['citadel']['access_key_id'] = 'foo'
         node.set['citadel']['secret_access_key'] = 'bar'
         node.set['citadel']['bucket'] = 'fake-s3-bucket'
@@ -39,7 +39,7 @@ describe 'ngrokd::default' do
 
   context 'do not source tls certificates from AWS' do
     let(:chef_run) do
-      ChefSpec::SoloRunner.new do |node|
+      ChefSpec::Runner.new do |node|
         node.set['citadel']['access_key_id'] = 'foo'
         node.set['citadel']['secret_access_key'] = 'bar'
         node.set['citadel']['bucket'] = 'fake-s3-bucket'
