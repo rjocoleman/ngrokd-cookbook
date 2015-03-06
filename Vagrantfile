@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+#^syntaxBOX detection
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 

@@ -26,13 +26,14 @@ node['ngrokd']['log'] = '/var/log/ngrokd.log' # path for ngrok to log to. stdout
 
 ## Secrets
 
-A SSL certificate and matching private key are required. These are stored in an Amazon S3 bucket and retrieved via [Citadel](https://github.com/poise/citadel), as such IAM Roles (if running the server in EC2) or AWS credentials are required.
+To use the install_certs recipe, an SSL certificate and matching private key are required. These are stored in an Amazon S3 bucket and retrieved via [Citadel](https://github.com/poise/citadel), as such IAM Roles (if running the server in EC2) or AWS credentials are required.
 Bucket should also be specified. See Citadel's docs for more information.
 
+If you do not wish to install the SSL certificate and key from AWS, you can supply the certs any other way you see fit, just use the default recipe.
 
 ## Usage
 
-### ngrokd::default
+### ngrokd-cookbook::default
 
 Include `ngrokd` in your node's `run_list`:
 
